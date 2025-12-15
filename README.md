@@ -111,3 +111,15 @@ void begin(const uint8_t* targetMac) {
     
     // ... Initialize ESP-NOW ...
 }
+## 6. Architecture for MSFS2020
+This project is designed to bridge Node-RED (FSUIPC) with physical hardware.
+
+PC (Node-RED): Encodes commands into SLIP packets.
+
+USB Serial: Transmits SLIP to ESP32-S3.
+
+ESP32-S3 (Bridge): Decodes SLIP on Core 1, Transmits ESP-NOW on Core 0.
+
+ESP32-C6 (Nodes): Receive commands and toggle Cockpit LEDs/Relays.
+
+Built with ❤️ for the Flight Sim Community.
